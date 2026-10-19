@@ -19,8 +19,6 @@ View classes are `AP`, `PA`, `LATERAL`, and `SUNRISE`. Domain labels are `0 = NO
 | `Code/Orthobench/` | Shared datasets, preprocessing, models, metrics, conformal prediction, statistics, sensitivity analysis, and triage utilities |
 | `Code/Scripts/` | Training, evaluation, maintenance, and analysis entry points |
 | `Code/Tests/` | Tests for core utilities, preprocessing, and peripheral masking |
-| `Dataset/` | Placeholder; image data and manifests are not included |
-| `Figures/` | Placeholder; figures are not included in this snapshot |
 
 ### Script guide
 
@@ -62,16 +60,7 @@ python -m pip install open_clip_torch transformers accelerate
 
 Install a PyTorch build appropriate for your CUDA environment. The package list above is a starting environment inferred from the source, not a pinned or validated environment specification. Model loading may download pretrained weights. Qwen requires a Transformers version exposing `Qwen2_5_VLForConditionalGeneration` or a compatible automatic image-to-text model class.
 
-### Resolve the package name before running
 
-Scripts import `orthobench`, but this snapshot stores the shared package as `Code/Orthobench`. On a case-sensitive filesystem, rename that directory and add `Code` to the Python path:
-
-```bash
-mv Code/Orthobench Code/orthobench
-export PYTHONPATH="$PWD/Code${PYTHONPATH:+:$PYTHONPATH}"
-```
-
-Run the rename once. Set `PYTHONPATH` in each new shell, and run the commands below from the repository root. This avoids `ModuleNotFoundError: No module named 'orthobench'`.
 
 ## Data and manifests
 
@@ -184,12 +173,7 @@ After setting up the lowercase package name and `PYTHONPATH`:
 python -m pytest Code/Tests
 ```
 
-## Current release scope
-
-This snapshot contains experiment source code rather than a complete reproduction bundle. It does not include a pinned dependency file, dataset manifests, pretrained experiment checkpoints, or final result tables. Numbered baseline scripts 03 and 04 are absent; in particular, the baseline domain training/evaluation workflow and Track A embedding extraction are not supplied as standalone entry points here. Domain maintenance therefore requires separately prepared embedding inputs. Some source messages reference requirements files that are also absent from this snapshot.
-
 ## Citation and license
 
-Manuscript citation details and a repository license are not supplied in this snapshot. Add the finalized paper citation when available and an appropriate `LICENSE` file specifying reuse terms. Source datasets and pretrained models retain their own access conditions and licenses.
 
 Repository: [pitthexai/knee-registry-benchmark](https://github.com/pitthexai/knee-registry-benchmark).
